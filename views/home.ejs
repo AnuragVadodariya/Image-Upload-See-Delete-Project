@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <title>Image Upload</title>
+</head>
+<body>
+    <%- include('./nav'); %> <hr><br>
+    <h1 class="text-center">Upload Images</h1>
+    <div class="container w-50">
+        <form action="" method="POST" enctype="multipart/form-data">
+            <%- include('./error_display'); %>
+            <div class="form-group">
+                <label><strong>Name Of Uploader:</strong></label>
+                <input type="text" class="form-control" name="unm" placeholder="Name Of Uploader"
+                value="<%= typeof unm != 'undefined' ? unm : '' %>" required>
+            </div>
+            <div class="form-group">
+                <label><strong>Description Of Image:</strong></label>
+                <input type="text" class="form-control" name="dis" placeholder="Image Description"
+                value="<%= typeof dis != 'undefined' ? dis : '' %>" required>
+            </div>
+            <div class="form-group">
+                <label><strong>Image:</strong></label>
+                <span>Choose meaningful Image (Only Allow .jpeg/.jpg/.png) && imageSize less then 1MB</span><br>
+                <input type="file" name="img_path" id="imgext" required onchange="chkextension()">
+            </div>
+            <input type="submit" class="form-control btn btn-success" name="Add_image">
+        </form>
+    </div>
+</body>
+</html>

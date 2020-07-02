@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <title>Delete Images</title>
+</head>
+<body>
+    <%- include('./nav'); %> <hr><br>
+    <h1 class="text-center">Delete Images</h1><br>
+    <table class="table table-hover table-bordered">
+        <thead>
+         <tr align="center">
+            <th>Image</th>
+            <th>Uploader-Name</th>
+            <th>Image-Discrition</th>
+            <th>Delete-Link</th>
+         </tr>
+        </thead>
+        <tbody>
+            <% for(let pic in FindAllImages) { %>
+                <tr align="center">
+                    <td><img src="../<%= FindAllImages[pic].imagePath %>" 
+                        class="img-responsive img-thumbnail" alt="Responsive image" 
+                        style="width: 100px; height: 100px;"></td>
+                    <td><%= FindAllImages[pic].uploaderName %></td>
+                    <td><%= FindAllImages[pic].imageDis %></td>
+                    <td><a href="/del_images/<%= FindAllImages[pic]._id %>">Delete This Image</a></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</body>
+</html>
